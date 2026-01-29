@@ -3,7 +3,7 @@
 import { Button } from '@heroui/react';
 import { useI18n } from '@/components/LanguageProvider';
 
-export default function CtaSection() {
+export default function SectionCTA() {
   const { t } = useI18n();
 
   const mailtoHref = `mailto:info@3comp.si?subject=${t('cta.emailSubject')}&body=${t(
@@ -15,7 +15,10 @@ export default function CtaSection() {
       <div className="container-page">
         <div className="surface flex flex-col items-start justify-between gap-8 p-8 shadow-sm md:p-12 lg:flex-row lg:items-center">
           <div className="max-w-2xl">
-            <h2 className="section-title">{t('cta.title')}</h2>
+            <h2 className="section-title">
+              {t('cta.title.prefix')}{' '}
+              <span className="text-blue-600">{t('cta.title.highlight')}</span>
+            </h2>
             <p className="section-subtitle">{t('cta.text')}</p>
           </div>
 
@@ -29,8 +32,6 @@ export default function CtaSection() {
             >
               {t('cta.emailButton')}
             </Button>
-
-            <div className="mt-3 text-xs text-black/60">info@3comp.si</div>
           </div>
         </div>
       </div>

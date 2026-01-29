@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
+@config "../tailwind.config.ts";
+@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --brand-blue: #016ccf;
+    --brand-black: #1a1a1a;
+    --brand-white: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+    height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--brand-black);
+    background: radial-gradient(
+            900px 500px at 15% 0%,
+            rgba(1, 108, 207, 0.10),
+            transparent 60%
+    ),
+    radial-gradient(
+            900px 500px at 85% 10%,
+            rgba(1, 108, 207, 0.08),
+            transparent 60%
+    ),
+    #fff;
 }
+
+::selection {
+    background: rgba(1, 108, 207, 0.18);
+}
+
+/* Utility-ish helpers (no Tailwind config needed) */
+.container-page {
+    width: min(1100px, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    margin-top: 0.75rem;
+    max-width: 70ch;
+    color: rgba(26, 26, 26, 0.7);
+}
+
+.surface {
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+}
+
+/* Card hover lift */
+.card-hover {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    will-change: transform;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+

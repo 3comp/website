@@ -1,22 +1,20 @@
 'use client';
 
-import { Button } from '@heroui/react';
 import { useI18n } from '@/components/LanguageProvider';
+import { Button } from '@heroui/react';
 
-export default function HeroSection() {
+export default function SectionHero() {
   const { t } = useI18n();
-
-  const mailtoHref = `mailto:info@3comp.si?subject=${t('cta.emailSubject')}&body=${t(
-    'cta.emailBody'
-  )}`;
 
   return (
     <section className="section">
       <div className="container-page">
         <div className="surface p-8 shadow-sm md:p-12">
+          {/* Keep text constrained */}
           <div className="max-w-3xl">
             <h1 className="text-3xl leading-tight font-extrabold tracking-tight md:text-5xl">
-              {t('hero.title')}
+              {t('hero.title.prefix')}{' '}
+              <span className="text-blue-600">{t('hero.title.highlight')}</span>
             </h1>
 
             <p className="mt-4 text-base leading-relaxed text-black/70 md:text-lg">
@@ -31,36 +29,55 @@ export default function HeroSection() {
                 variant="solid"
                 className="w-full sm:w-auto"
               >
-                {t('services.title')}
+                {t('hero.services')}
               </Button>
 
               <Button
                 as="a"
-                href={mailtoHref}
+                href="#contact"
                 color="default"
                 variant="bordered"
                 className="w-full sm:w-auto"
               >
-                {t('nav.email')}
+                {t('hero.email')}
               </Button>
             </div>
+          </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
-              <div className="surface p-4 text-sm">
-                <div className="font-semibold">ERP</div>
-                <div className="text-black/60">Pantheon</div>
+          {/* Let cards use full width of the hero panel */}
+          <div className="mt-10 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="surface card-hover flex h-full w-full flex-col p-5">
+              <div className="font-semibold">{t('hero.sub.title1')}</div>
+              <div className="mt-2 text-sm text-black/60">
+                {t('hero.sub.text1')}
               </div>
-              <div className="surface p-4 text-sm">
-                <div className="font-semibold">Integrations</div>
-                <div className="text-black/60">ERP / MES / CRM</div>
+            </div>
+
+            <div className="surface card-hover flex h-full w-full flex-col p-5">
+              <div className="font-semibold">{t('hero.sub.title2')}</div>
+              <div className="mt-2 text-sm text-black/60">
+                {t('hero.sub.text2')}
               </div>
-              <div className="surface p-4 text-sm">
-                <div className="font-semibold">Custom Apps</div>
-                <div className="text-black/60">Web + internal tools</div>
+            </div>
+
+            <div className="surface card-hover flex h-full w-full flex-col p-5">
+              <div className="font-semibold">{t('hero.sub.title3')}</div>
+              <div className="mt-2 text-sm text-black/60">
+                {t('hero.sub.text3')}
               </div>
-              <div className="surface p-4 text-sm">
-                <div className="font-semibold">Support</div>
-                <div className="text-black/60">Long-term partner</div>
+            </div>
+
+            <div className="surface card-hover flex h-full w-full flex-col p-5">
+              <div className="font-semibold">{t('hero.sub.title4')}</div>
+              <div className="mt-2 text-sm text-black/60">
+                {t('hero.sub.text4')}
+              </div>
+            </div>
+
+            <div className="surface card-hover flex h-full w-full flex-col p-5">
+              <div className="font-semibold">{t('hero.sub.title5')}</div>
+              <div className="mt-2 text-sm text-black/60">
+                {t('hero.sub.text5')}
               </div>
             </div>
           </div>
