@@ -1,9 +1,10 @@
 {
-  "name": "3comp-heroui",
+  "name": "3comp-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
