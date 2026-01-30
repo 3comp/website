@@ -11,26 +11,55 @@
 
 html,
 body {
-    height: 100%;
+    min-height: 100%;
 }
 
 html {
-    scroll-behavior: smooth;
+    font-size: clamp(16px, 0.35vw + 14px, 18px);
+    background:
+            radial-gradient(
+                    40vw 40vw at 0% 0%,
+                    rgba(1, 108, 207, 0.25) 0%,
+                    rgba(1, 108, 207, 0.15) 40%,
+                    transparent 80%
+            ),
+            radial-gradient(
+                    40vw 40vw at 100% 0%,
+                    rgba(1, 108, 207, 0.22) 0%,
+                    rgba(1, 108, 207, 0.12) 40%,
+                    transparent 80%
+            ),
+            radial-gradient(
+                    20vw 120vmax at 0% 50%,
+                    rgba(1, 108, 207, 0.18) 0%,
+                    rgba(1, 108, 207, 0.10) 40%,
+                    transparent 80%
+            ),
+            radial-gradient(
+                    20vw 120vmax at 100% 50%,
+                    rgba(1, 108, 207, 0.18) 0%,
+                    rgba(1, 108, 207, 0.10) 40%,
+                    transparent 80%
+            ),
+            radial-gradient(
+                    40vw 40vw at 0% 100%,
+                    rgba(1, 108, 207, 0.18) 0%,
+                    rgba(1, 108, 207, 0.10) 40%,
+                    transparent 80%
+            ),
+            radial-gradient(
+                    40vw 40vw at 100% 100%,
+                    rgba(1, 108, 207, 0.16) 0%,
+                    rgba(1, 108, 207, 0.08) 40%,
+                    transparent 80%
+            )
+            #fff no-repeat;
 }
 
+
 body {
-    color: var(--brand-black);
-    background: radial-gradient(
-            900px 500px at 15% 0%,
-            rgba(1, 108, 207, 0.10),
-            transparent 60%
-    ),
-    radial-gradient(
-            900px 500px at 85% 10%,
-            rgba(1, 108, 207, 0.08),
-            transparent 60%
-    ),
-    #fff;
+    background: transparent;
+    line-height: 1.5;
 }
 
 ::selection {
@@ -39,12 +68,12 @@ body {
 
 /* Utility-ish helpers (no Tailwind config needed) */
 .container-page {
-    width: min(1100px, calc(100% - 2rem));
+    width: min(1240px, calc(100% - 2.5rem));
     margin-inline: auto;
 }
 
 .section {
-    padding-block: clamp(3rem, 6vw, 5rem);
+    padding-block: clamp(3.5rem, 6.5vw, 6rem);
 }
 
 .section-title {
