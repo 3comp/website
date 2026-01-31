@@ -4,6 +4,13 @@ import './globals.css';
 import { Providers } from './providers';
 import { getDictionary, normalizeLang } from '@/lib/i18n';
 import { LanguageProvider } from '@/components/LanguageProvider';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.3comp.si'),
@@ -25,7 +32,7 @@ export default async function RootLayout({
   const dict = await getDictionary(lang);
 
   return (
-    <html lang={lang === 'si' ? 'si' : 'en'}>
+    <html lang={lang === 'si' ? 'si' : 'en'} className={poppins.variable}>
       <body>
         <Providers>
           <LanguageProvider initialLang={lang} dictionary={dict}>
