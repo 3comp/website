@@ -92,20 +92,20 @@ export default function SectionTeam() {
 
   const team: TeamMember[] = [
     {
-      name: 'Gašper Golja',
-      role: t('team.member1.role'),
-      imageSrc: '/img/gasper.png',
-      imageAlt: 'Team member 1',
-      linkedinUrl: 'https://www.linkedin.com/in/gašper-golja-960604276/',
-      email: 'gasper@3comp.si',
-    },
-    {
       name: 'Tristan Jerin',
-      role: t('team.member2.role'),
+      role: t('team.member1.role'),
       imageSrc: '/img/tristan.png',
-      imageAlt: 'Team member 2',
+      imageAlt: 'Team member 1',
       linkedinUrl: 'https://www.linkedin.com/in/tristan-jerin-06981a203/',
       email: 'tristan@3comp.si',
+    },
+    {
+      name: 'Gašper Golja',
+      role: t('team.member2.role'),
+      imageSrc: '/img/gasper.png',
+      imageAlt: 'Team member 2',
+      linkedinUrl: 'https://www.linkedin.com/in/gašper-golja-960604276/',
+      email: 'gasper@3comp.si',
     },
     {
       name: 'Jan Stupica',
