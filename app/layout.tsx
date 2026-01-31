@@ -15,7 +15,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.3comp.si'),
   title: {
-    default: '3comp | Digitalne rešitve, ERP in razvoj programske opreme',
+    default: '3comp',
     template: '%s | 3comp',
   },
   description:
