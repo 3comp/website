@@ -5,6 +5,8 @@ import { Providers } from './providers';
 import { getDictionary, normalizeLang } from '@/lib/i18n';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import { Poppins } from 'next/font/google';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -36,7 +38,9 @@ export default async function RootLayout({
       <body>
         <Providers>
           <LanguageProvider initialLang={lang} dictionary={dict}>
+            <Header />
             {children}
+            <Footer />
           </LanguageProvider>
         </Providers>
       </body>
