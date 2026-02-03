@@ -58,6 +58,9 @@ export default function Header() {
         <NavbarItem>
           <Link href="/pricing" color="foreground">
             {t('nav.pricing')}
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
           <Link href="/about-us" color="foreground">
             {t("nav.about")}
           </Link>
