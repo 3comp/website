@@ -3,7 +3,6 @@
 import React from 'react';
 import { Button } from '@heroui/react';
 import MarkdownPage from '@/components/MarkdownPage';
-import styles from './services.module.css';
 
 type ServiceKey = 'pantheon' | 'odoo';
 
@@ -13,7 +12,6 @@ export default function ServicesPage() {
   return (
     <>
       <main className="mx-auto w-full max-w-[95vw] px-4 py-8">
-        <div className={styles.container}>
           <div className="grid grid-cols-1 gap-6 md:h-[80vh] md:grid-cols-[260px_1fr] md:items-stretch">
             {/* Left menu */}
             <aside className="relative rounded-2xl bg-white/60 p-3 shadow-sm backdrop-blur-md md:h-full">
@@ -55,7 +53,6 @@ export default function ServicesPage() {
               <MarkdownPage pageName={active} />
             </section>
           </div>
-        </div>
       </main>
     </>
   );
