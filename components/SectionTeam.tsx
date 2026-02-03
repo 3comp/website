@@ -108,7 +108,7 @@ export default function SectionTeam() {
       email: 'gasper@3comp.si',
     },
     {
-      name: 'Jan Stupica',
+      name: 'Jan De Stupica',
       role: t('team.member3.role'),
       imageSrc: '/img/jan.png',
       imageAlt: 'Team member 3',

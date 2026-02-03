@@ -24,6 +24,7 @@ export default function Header() {
   const navItems = [
     { label: t('nav.home'), href: '/' },
     { label: t('nav.services'), href: '/services' },
+    { label: t("nav.about"), href: "/about-us"}
   ];
 
   return (
@@ -51,6 +52,11 @@ export default function Header() {
         <NavbarItem>
           <Link href="/services" color="foreground">
             {t('nav.services')}
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/about-us" color="foreground">
+            {t("nav.about")}
           </Link>
         </NavbarItem>
       </NavbarContent>
