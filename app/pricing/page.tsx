@@ -51,7 +51,7 @@ function Card({
   return (
     <div
       className={[
-        'flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm',
+        'surface card-hover flex h-full w-full flex-col p-5',
         className,
       ].join(' ')}
     >
@@ -97,6 +97,7 @@ export default function PricingPage() {
         t('pricing.oneTime.project.note1'),
         t('pricing.oneTime.project.note2'),
         t('pricing.oneTime.project.note3'),
+        t('pricing.oneTime.project.note4'),
       ],
       ctaLabel: t('pricing.oneTime.project.cta'),
     },
@@ -108,7 +109,6 @@ export default function PricingPage() {
       title: t('pricing.longTerm.basic.title'),
       subtitle: t('pricing.longTerm.basic.subtitle'),
       priceLabel: t('pricing.longTerm.basic.priceLabel'),
-      billingHint: t('pricing.longTerm.billingHint'),
       features: [
         t('pricing.longTerm.basic.feature1'),
         t('pricing.longTerm.basic.feature2'),
@@ -122,7 +122,6 @@ export default function PricingPage() {
       title: t('pricing.longTerm.advanced.title'),
       subtitle: t('pricing.longTerm.advanced.subtitle'),
       priceLabel: t('pricing.longTerm.advanced.priceLabel'),
-      billingHint: t('pricing.longTerm.billingHint'),
       highlight: true,
       badgeLabel: t('pricing.longTerm.popularBadge'),
       features: [
@@ -131,6 +130,7 @@ export default function PricingPage() {
         t('pricing.longTerm.advanced.feature3'),
         t('pricing.longTerm.advanced.feature4'),
         t('pricing.longTerm.advanced.feature5'),
+        t('pricing.longTerm.advanced.feature6'),
       ],
       cta: t('pricing.longTerm.advanced.cta'),
     },
@@ -139,13 +139,13 @@ export default function PricingPage() {
       title: t('pricing.longTerm.enterprise.title'),
       subtitle: t('pricing.longTerm.enterprise.subtitle'),
       priceLabel: t('pricing.longTerm.enterprise.priceLabel'),
-      billingHint: t('pricing.longTerm.billingHint'),
       features: [
         t('pricing.longTerm.enterprise.feature1'),
         t('pricing.longTerm.enterprise.feature2'),
         t('pricing.longTerm.enterprise.feature3'),
         t('pricing.longTerm.enterprise.feature4'),
         t('pricing.longTerm.enterprise.feature5'),
+        t('pricing.longTerm.enterprise.feature6'),
       ],
       cta: t('pricing.longTerm.enterprise.cta'),
     },
@@ -203,7 +203,7 @@ export default function PricingPage() {
                   <div className="mt-auto pt-5">
                     <a
                       href={buildMailtoHref(opt.title)}
-                      className="inline-flex items-center justify-center rounded-xl bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+                      className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:opacity-90"
                     >
                       {opt.ctaLabel}
                     </a>
@@ -240,7 +240,7 @@ export default function PricingPage() {
                       </div>
 
                       {plan.highlight && plan.badgeLabel ? (
-                        <span className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-semibold text-white">
+                        <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
                           {plan.badgeLabel}
                         </span>
                       ) : null}
@@ -250,11 +250,6 @@ export default function PricingPage() {
                       <div className="text-2xl font-bold">
                         {plan.priceLabel}
                       </div>
-                      {plan.billingHint ? (
-                        <p className="text-xs text-neutral-600">
-                          {plan.billingHint}
-                        </p>
-                      ) : null}
                     </div>
                   </div>
 
@@ -279,7 +274,7 @@ export default function PricingPage() {
                       className={[
                         'inline-flex w-full items-center justify-center rounded-xl px-4 py-2 text-sm font-medium',
                         plan.highlight
-                          ? 'bg-neutral-900 text-white hover:opacity-90'
+                          ? 'bg-blue-600 text-white hover:opacity-90'
                           : 'border border-neutral-200 hover:bg-neutral-50',
                       ].join(' ')}
                     >
