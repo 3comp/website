@@ -3,6 +3,7 @@
   "nav.home": "Domov",
   "nav.services": "Storitve",
   "nav.pricing": "Cene",
+  "nav.blog": "Blog",
   "nav.about": "O Nas",
 
   "hero.title.prefix": "En tehnološki partner",
@@ -127,7 +128,6 @@
   "about.whatWeDo.card2.text": "Rešitve, prilagojene vašim potrebam",
   "about.whatWeDo.card3.title": "Zanesljivo",
   "about.whatWeDo.card3.text": "Rešitve za prihodnost, ne samo za danes",
-  "about.menuTitle": "Na tej strani",
   "about.howWeThink.title1": "Kako",
   "about.howWeThink.title2": "Razmišljamo",
   "about.howWeThink.text1": "Verjamemo, da mora programska oprema podpirati dejansko delovanje podjetja — ne pa siliti ekip v prilagajanje togim sistemom.",

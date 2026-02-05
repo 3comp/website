@@ -4,42 +4,26 @@ import SectionCTA from '@/components/SectionCTA';
 import { useI18n } from '@/components/LanguageProvider';
 import React from 'react';
 
-const nav = [
-  {
-    id: 'what-we-do',
-    key1: 'about.whatWeDo.title1',
-    key2: 'about.whatWeDo.title2',
-  },
-  {
-    id: 'how-we-think',
-    key1: 'about.howWeThink.title1',
-    key2: 'about.howWeThink.title2',
-  },
-  {
-    id: 'why-we-started',
-    key1: 'about.whyWeStarted.title1',
-    key2: 'about.whyWeStarted.title2',
-  },
-  {
-    id: 'what-makes-us-different',
-    key1: 'about.whatMakesUsDifferent.title1',
-    key2: 'about.whatMakesUsDifferent.title2',
-  },
-  {
-    id: 'who-we-work-with',
-    key1: 'about.whoWeWorkWith.title1',
-    key2: 'about.whoWeWorkWith.title2',
-  },
-];
-
-function Panel({ id, children }: { id: string; children: React.ReactNode }) {
+function Panel({
+  id,
+  children,
+  className = '',
+}: {
+  id: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <section
       id={id}
       className={[
         'scroll-mt-24',
+        // keep the “panel look” exactly the same
         'card-hover overflow-visible rounded-3xl border border-black/10 bg-transparent',
         'focus-within:ring-2 focus-within:ring-blue-600/60 focus-within:outline-none',
+        // keep the panel size similar to when the left menu existed
+        'w-full max-w-220',
+        className,
       ].join(' ')}
     >
       <div className="p-6 md:p-8">{children}</div>
@@ -63,6 +47,64 @@ function SubtleDivider() {
 
 export default function AboutUsPage() {
   const { t } = useI18n();
+
+  const panels = [
+    {
+      id: 'how-we-think',
+      titleA: t('about.howWeThink.title1'),
+      titleB: t('about.howWeThink.title2'),
+      body: (
+        <div className="mt-4 space-y-3 text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
+          <p>{t('about.howWeThink.text1')}</p>
+          <p>{t('about.howWeThink.text2')}</p>
+          <p>{t('about.howWeThink.text3')}</p>
+        </div>
+      ),
+    },
+    {
+      id: 'why-we-started',
+      titleA: t('about.whyWeStarted.title1'),
+      titleB: t('about.whyWeStarted.title2'),
+      body: (
+        <div className="mt-4 space-y-3 text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
+          <p>{t('about.whyWeStarted.text1')}</p>
+          <p>{t('about.whyWeStarted.text2')}</p>
+        </div>
+      ),
+    },
+    {
+      id: 'what-makes-us-different',
+      titleA: t('about.whatMakesUsDifferent.title1'),
+      titleB: t('about.whatMakesUsDifferent.title2'),
+      body: (
+        <ul className="mt-5 space-y-4">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <li key={i} className="flex gap-3">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-blue-600/80" />
+              <div className="text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
+                <span className="font-semibold text-slate-900">
+                  {t(`about.whatMakesUsDifferent.point${i}.title`)}
+                </span>
+                {' — '}
+                {t(`about.whatMakesUsDifferent.point${i}.text`)}
+              </div>
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+    {
+      id: 'who-we-work-with',
+      titleA: t('about.whoWeWorkWith.title1'),
+      titleB: t('about.whoWeWorkWith.title2'),
+      body: (
+        <div className="mt-4 space-y-3 text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
+          <p>{t('about.whoWeWorkWith.text1')}</p>
+          <p>{t('about.whoWeWorkWith.text2')}</p>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -110,85 +152,20 @@ export default function AboutUsPage() {
           </div>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-[240px_1fr]">
-          <aside className="hidden md:block">
-            <div className="card-hover sticky top-24 overflow-visible rounded-2xl border border-black/10 bg-transparent p-4">
-              <p className="mb-3 text-sm font-medium tracking-wide text-slate-600 uppercase">
-                {t('about.menuTitle')}
-              </p>
+        {/* Panels: alternating alignment */}
+        <section className="flex flex-col gap-15">
+          {panels.map((p, idx) => {
+            // 1st right, 2nd left, 3rd right, ...
+            const alignClass = idx % 2 === 0 ? 'ml-auto' : 'mr-auto';
 
-              <nav className="space-y-1">
-                {nav.map((n) => (
-                  <a
-                    key={n.id}
-                    href={`#${n.id}`}
-                    className="block rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-900/5 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/60"
-                  >
-                    {t(n.key1)} {t(n.key2)}
-                  </a>
-                ))}
-              </nav>
-            </div>
-          </aside>
-
-          <section className="space-y-8">
-            <Panel id="how-we-think">
-              <Title
-                a={t('about.howWeThink.title1')}
-                b={t('about.howWeThink.title2')}
-              />
-              <div className="mt-4 space-y-3 text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
-                <p>{t('about.howWeThink.text1')}</p>
-                <p>{t('about.howWeThink.text2')}</p>
-                <p>{t('about.howWeThink.text3')}</p>
-              </div>
-            </Panel>
-
-            <Panel id="why-we-started">
-              <Title
-                a={t('about.whyWeStarted.title1')}
-                b={t('about.whyWeStarted.title2')}
-              />
-              <div className="mt-4 space-y-3 text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
-                <p>{t('about.whyWeStarted.text1')}</p>
-                <p>{t('about.whyWeStarted.text2')}</p>
-              </div>
-            </Panel>
-
-            <Panel id="what-makes-us-different">
-              <Title
-                a={t('about.whatMakesUsDifferent.title1')}
-                b={t('about.whatMakesUsDifferent.title2')}
-              />
-
-              <ul className="mt-5 space-y-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-blue-600/80" />
-                    <div className="text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
-                      <span className="font-semibold text-slate-900">
-                        {t(`about.whatMakesUsDifferent.point${i}.title`)}
-                      </span>
-                      {' — '}
-                      {t(`about.whatMakesUsDifferent.point${i}.text`)}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Panel>
-
-            <Panel id="who-we-work-with">
-              <Title
-                a={t('about.whoWeWorkWith.title1')}
-                b={t('about.whoWeWorkWith.title2')}
-              />
-              <div className="mt-4 space-y-3 text-sm leading-relaxed text-pretty text-slate-700 md:text-base">
-                <p>{t('about.whoWeWorkWith.text1')}</p>
-                <p>{t('about.whoWeWorkWith.text2')}</p>
-              </div>
-            </Panel>
-          </section>
-        </div>
+            return (
+              <Panel key={p.id} id={p.id} className={alignClass}>
+                <Title a={p.titleA} b={p.titleB} />
+                {p.body}
+              </Panel>
+            );
+          })}
+        </section>
 
         <SubtleDivider />
         <SectionCTA />

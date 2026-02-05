@@ -13,7 +13,7 @@ export default function SectionCTA() {
   return (
     <section id="contact" className="section">
       <div className="container-page">
-        <div className="surface flex flex-col items-start justify-between gap-8 p-8 shadow-sm md:p-12 lg:flex-row lg:items-center">
+        <div className="surface card-hover flex flex-col items-start justify-between gap-8 p-8 shadow-sm md:p-12 lg:flex-row lg:items-center">
           <div className="max-w-2xl">
             <h2 className="section-title">
               {t('cta.title.prefix')}{' '}
