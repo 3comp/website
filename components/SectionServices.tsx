@@ -1,9 +1,13 @@
 'use client';
 
+import Link from 'next/link';
 import { useI18n } from '@/components/LanguageProvider';
 import { Card, CardBody, CardFooter, CardHeader, Image } from '@heroui/react';
 
+type ServiceKey = 'pantheon' | 'odoo' | 'custom' | 'web' | 'it';
+
 type Service = {
+  key: ServiceKey;
   title: string;
   text: string;
   footerText?: string;
@@ -21,24 +25,23 @@ function ServiceCard({
   footerImageAlt,
   footerImageWidth,
   footerImageHeight,
-}: Service) {
+}: Omit<Service, 'key'>) {
   return (
     <Card
       shadow="none"
-      className="card-hover w-full overflow-visible border border-black/10 bg-white"
+      className="card-hover flex h-55 w-full flex-col overflow-visible border border-black/10 bg-white"
     >
-      {/* TITLE */}
       <CardHeader className="px-6 pt-6 pb-1">
         <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
       </CardHeader>
 
-      {/* DESCRIPTION */}
-      <CardBody className="px-6 py-2">
-        <p className="text-sm leading-relaxed text-black/70">{text}</p>
+      <CardBody className="flex-1 px-6 py-2">
+        <p className="line-clamp-4 text-sm leading-relaxed text-black/70 sm:line-clamp-5">
+          {text}
+        </p>
       </CardBody>
 
-      {/* FOOTER */}
-      <CardFooter className="flex items-end justify-between px-6 pt-2 pb-6">
+      <CardFooter className="mt-auto flex items-end justify-between px-6 pt-2 pb-6">
         <span className="text-xs text-black/50">{footerText ?? ''}</span>
 
         {footerImageSrc && (
@@ -62,6 +65,7 @@ export default function SectionServices() {
 
   const services: Service[] = [
     {
+      key: 'pantheon',
       title: t('services.pantheon.title'),
       text: t('services.pantheon.text'),
       footerText: t('services.footer.defaultText'),
@@ -71,6 +75,7 @@ export default function SectionServices() {
       footerImageHeight: 24,
     },
     {
+      key: 'odoo',
       title: t('services.odoo.title'),
       text: t('services.odoo.text'),
       footerText: t('services.footer.defaultText'),
@@ -80,6 +85,7 @@ export default function SectionServices() {
       footerImageHeight: 26,
     },
     {
+      key: 'custom',
       title: t('services.custom.title'),
       text: t('services.custom.text'),
       footerText: t('services.footer.defaultText'),
@@ -89,6 +95,7 @@ export default function SectionServices() {
       footerImageHeight: 36,
     },
     {
+      key: 'web',
       title: t('services.web.title'),
       text: t('services.web.text'),
       footerText: t('services.footer.defaultText'),
@@ -98,6 +105,7 @@ export default function SectionServices() {
       footerImageHeight: 36,
     },
     {
+      key: 'it',
       title: t('services.it.title'),
       text: t('services.it.text'),
       footerText: t('services.footer.defaultText'),
@@ -118,8 +126,14 @@ export default function SectionServices() {
         <p className="section-subtitle">{t('services.intro')}</p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <ServiceCard key={s.title} {...s} />
+          {services.map(({ key, ...serviceProps }) => (
+            <Link
+              key={key}
+              href={`/services?service=${key}`}
+              className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/60"
+            >
+              <ServiceCard {...serviceProps} />
+            </Link>
           ))}
         </div>
       </div>

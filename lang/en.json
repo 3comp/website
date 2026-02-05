@@ -121,21 +121,26 @@
   "pricing.emailSubject": "3comp - Inquiry",
   "pricing.emailBody": "Hello 3comp,%0D%0A%0D%0ASelected service:%20{{option}}%0D%0A%0D%0ACompany:%20%0D%0ANeeds:%20%0D%0ATimeline:%20%0D%0A%0D%0AThank you,%0D%0A",
 
+  "about.whatWeDo.smalltext": "What makes 3comp great?",
   "about.whatWeDo.title1": "What",
   "about.whatWeDo.title2": "We Do",
   "about.whatWeDo.text": "We design and develop business software that brings structure, clarity, and reliability into complex operational environments. Our work helps organizations rebuild trust in their data and move forward faster without disrupting what already works.",
-
+  "about.whatWeDo.card1.title": "Fast",
+  "about.whatWeDo.card1.text": "Ability to quickly iterate through solutions",
+  "about.whatWeDo.card2.title": "Practical",
+  "about.whatWeDo.card2.text": "Solutions that fit your needs",
+  "about.whatWeDo.card3.title": "Reliable",
+  "about.whatWeDo.card3.text": "Solutions for the future, not just for today",
+  "about.menuTitle": "On this page",
   "about.howWeThink.title1": "How",
   "about.howWeThink.title2": "We Think",
   "about.howWeThink.text1": "We believe software should support how a company actually operates — not force teams to adapt to rigid systems.",
   "about.howWeThink.text2": "Our approach is pragmatic and detail-oriented. We focus on understanding processes end-to-end, designing solutions that naturally integrate into existing workflows, and delivering systems that remain stable in real-world use. We value robustness over shortcuts and efficiency over unnecessary complexity.",
   "about.howWeThink.text3": "Clear communication and long-term responsibility are the foundation of how we work.",
-
   "about.whyWeStarted.title1": "Why We",
   "about.whyWeStarted.title2": "Started",
   "about.whyWeStarted.text1": "We frequently encountered organizations running critical operations through disconnected tools, spreadsheets, and manual procedures. Data was inconsistent, changes were slow, and even minor improvements carried risks.",
   "about.whyWeStarted.text2": "Existing solutions were often powerful but poorly implemented or overly extended. We recognized an opportunity to bridge this gap — combining deep domain knowledge, thoughtful implementation, and custom development to create systems companies can truly rely on.",
-
   "about.whatMakesUsDifferent.title1": "What Makes Us",
   "about.whatMakesUsDifferent.title2": "Different",
   "about.whatMakesUsDifferent.point1.title": "Deep ERP System Expertise",
@@ -148,7 +153,6 @@
   "about.whatMakesUsDifferent.point4.text": "changes are thoughtful, tested, and designed for long-term use",
   "about.whatMakesUsDifferent.point5.title": "Clear and Direct Communication",
   "about.whatMakesUsDifferent.point5.text": "fewer assumptions, fewer surprises",
-
   "about.whoWeWorkWith.title1": "Who We",
   "about.whoWeWorkWith.title2": "Work With",
   "about.whoWeWorkWith.text1": "We work with companies and product teams that rely on ERP and other business systems for their core operations.",
