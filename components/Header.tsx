@@ -25,7 +25,8 @@ export default function Header() {
     { label: t('nav.home'), href: '/' },
     { label: t('nav.services'), href: '/services' },
     { label: t('nav.pricing'), href: '/pricing' },
-    { label: t("nav.about"), href: "/about-us"}
+    { label: t('nav.blog'), href: '/blog' },
+    { label: t('nav.about'), href: '/about-us' },
   ];
 
   return (
@@ -34,6 +35,7 @@ export default function Header() {
         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         className="sm:hidden"
       />
+
       <NavbarBrand className="w-sm">
         <Image
           src="/img/logo.svg"
@@ -44,27 +46,27 @@ export default function Header() {
         />
       </NavbarBrand>
 
-      <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-        <NavbarItem>
-          <Link href="/" color="foreground">
-            {t('nav.home')}
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/services" color="foreground">
-            {t('nav.services')}
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/pricing" color="foreground">
-            {t('nav.pricing')}
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/about-us" color="foreground">
-            {t("nav.about")}
-          </Link>
-        </NavbarItem>
+      {/* Desktop navigation */}
+      <NavbarContent className="hidden gap-10 sm:flex" justify="center">
+        {navItems.map((item) => {
+          const isActive = pathname === item.href;
+
+          return (
+            <NavbarItem key={item.href}>
+              <Link
+                href={item.href}
+                className={[
+                  'font-medium transition-colors duration-200',
+                  isActive
+                    ? 'text-(--brand-blue)'
+                    : 'text-foreground hover:text-(--brand-blue)',
+                ].join(' ')}
+              >
+                {item.label}
+              </Link>
+            </NavbarItem>
+          );
+        })}
       </NavbarContent>
 
       <NavbarContent className="w-md" justify="end">
@@ -73,6 +75,7 @@ export default function Header() {
         </NavbarItem>
       </NavbarContent>
 
+      {/* Mobile menu */}
       <NavbarMenu>
         {navItems.map((item) => (
           <NavbarMenuItem key={item.href}>
