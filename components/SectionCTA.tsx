@@ -6,9 +6,14 @@ import { useI18n } from '@/components/LanguageProvider';
 export default function SectionCTA() {
   const { t } = useI18n();
 
-  const mailtoHref = `mailto:info@3comp.si?subject=${t('cta.emailSubject')}&body=${t(
-    'cta.emailBody'
-  )}`;
+  const subject = t('cta.emailSubject');
+
+  // Convert literal \n from translation into real new lines
+  const bodyRaw = t('cta.emailBody').replace(/\\n/g, '\r\n');
+
+  const mailto = `mailto:info@3comp.si?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(bodyRaw)}`;
 
   return (
     <section id="contact" className="section">
@@ -19,16 +24,19 @@ export default function SectionCTA() {
               {t('cta.title.prefix')}{' '}
               <span className="text-blue-600">{t('cta.title.highlight')}</span>
             </h2>
+
             <p className="section-subtitle">{t('cta.text')}</p>
           </div>
 
           <div className="w-full lg:w-auto">
             <Button
-              as="a"
-              href={mailtoHref}
+              as="button"
               color="primary"
               variant="solid"
               className="w-full lg:w-auto"
+              onPress={() => {
+                window.location.href = mailto;
+              }}
             >
               {t('cta.emailButton')}
             </Button>
