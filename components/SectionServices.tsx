@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useI18n } from '@/components/LanguageProvider';
 import { Card, CardBody, CardFooter, CardHeader, Image } from '@heroui/react';
 
-type ServiceKey = 'pantheon' | 'odoo' | 'custom' | 'web' | 'it';
+type ServiceKey = 'pantheon' | 'odoo' | 'custom' | 'web' | 'it' | 'autotest';
 
 type Service = {
   key: ServiceKey;
@@ -113,6 +113,16 @@ export default function SectionServices() {
       footerImageAlt: 'IT support',
       footerImageWidth: 90,
       footerImageHeight: 36,
+    },
+    {
+      key: 'autotest',
+      title: t('services.autotest.title'),
+      text: t('services.autotest.text'),
+      footerText: t('services.footer.defaultText'),
+      footerImageSrc: '/img/autotest.svg',
+      footerImageAlt: 'Autotest',
+      footerImageWidth: 90,
+      footerImageHeight: 38,
     },
   ];
 

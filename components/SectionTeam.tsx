@@ -29,7 +29,7 @@ function TeamCard({
     <Card
       isFooterBlurred
       shadow="none"
-      className="card-hover h-120 w-full overflow-visible border border-black/10 bg-white"
+      className="card-hover mx-auto h-120 w-[70%] overflow-visible border border-black/10 bg-white transition-[width,height] duration-300 sm:w-[80%] md:h-110 md:w-[90%]"
     >
       {/* TOP OVERLAY */}
       <CardHeader className="absolute top-3 z-10 flex-col items-start px-4">
