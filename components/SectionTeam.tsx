@@ -1,7 +1,14 @@
 'use client';
 
 import { useI18n } from '@/components/LanguageProvider';
-import { Button, Card, CardFooter, CardHeader, Image, Link as HeroLink, } from '@heroui/react';
+import {
+  Button,
+  Card,
+  CardFooter,
+  CardHeader,
+  Image,
+  Link as HeroLink,
+} from '@heroui/react';
 
 type TeamMember = {
   name: string;
@@ -29,33 +36,46 @@ function TeamCard({
     <Card
       isFooterBlurred
       shadow="none"
-      className="card-hover mx-auto h-120 w-[70%] overflow-visible border border-black/10 bg-white transition-[width,height] duration-300 sm:w-[80%] md:h-110 md:w-[90%]"
-    >
-      {/* TOP OVERLAY */}
-      <CardHeader className="absolute top-3 z-10 flex-col items-start px-4">
-        <p className="text-tiny font-semibold text-white/70 uppercase">
-          {role}
-        </p>
-        <h4 className="text-xl font-semibold text-white">{name}</h4>
-      </CardHeader>
+      className={[
+        'group w-full overflow-hidden border border-black/10 bg-white',
 
-      {/* FULL BACKGROUND IMAGE */}
+        'aspect-3/4 sm:aspect-4/5 lg:aspect-3/4',
+
+        'rounded-2xl transition-transform duration-300 hover:-translate-y-1',
+      ].join(' ')}
+    >
+      {/* IMAGE */}
       <Image
         removeWrapper
         alt={imageAlt}
         src={imageSrc}
-        className="z-0 h-full w-full object-cover"
+        className="h-full w-full object-cover"
       />
 
-      {/* BLURRED FOOTER */}
-      <CardFooter className="absolute bottom-0 z-10 w-full border-t border-white/20 bg-black/40 backdrop-blur-md">
-        <div className="flex w-full items-center justify-between gap-3 px-4 py-3">
-          <div className="flex flex-col">
-            <p className="text-tiny text-white/70">{t('team.connect')}</p>
-            <p className="text-tiny text-white/60">{t('team.connectHint')}</p>
+      {/* TOP OVERLAY */}
+      <CardHeader className="absolute inset-x-0 top-0 z-10 flex-col items-start gap-1 p-4 sm:p-5">
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/65 via-black/15 to-transparent" />
+        <div className="relative">
+          <p className="text-xs font-semibold tracking-wide text-white/80 uppercase">
+            {role}
+          </p>
+          <h4 className="text-lg font-semibold text-white sm:text-xl">
+            {name}
+          </h4>
+        </div>
+      </CardHeader>
+
+      {/* FOOTER OVERLAY */}
+      <CardFooter className="absolute inset-x-0 bottom-0 z-10 border-t border-white/15 bg-black/35 backdrop-blur-md">
+        <div className="flex w-full items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">
+          <div className="min-w-0">
+            <p className="text-xs text-white/80">{t('team.connect')}</p>
+            <p className="truncate text-xs text-white/60">
+              {t('team.connectHint')}
+            </p>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex shrink-0 gap-2">
             {linkedinUrl && (
               <Button
                 as={HeroLink}
@@ -63,7 +83,7 @@ function TeamCard({
                 isExternal
                 radius="full"
                 size="sm"
-                className="bg-white/20 text-white hover:bg-white/30"
+                className="bg-white/15 text-white hover:bg-white/25"
               >
                 LinkedIn
               </Button>
@@ -75,7 +95,7 @@ function TeamCard({
                 href={`mailto:${email}`}
                 radius="full"
                 size="sm"
-                className="bg-white/20 text-white hover:bg-white/30"
+                className="bg-white/15 text-white hover:bg-white/25"
               >
                 Email
               </Button>
@@ -104,7 +124,7 @@ export default function SectionTeam() {
       role: t('team.member2.role'),
       imageSrc: '/img/gasper.png',
       imageAlt: 'Team member 2',
-      linkedinUrl: 'https://www.linkedin.com/in/gašper-golja-960604276/',
+      linkedinUrl: 'https://www.linkedin.com/in/ga%C5%A1per-golja-960604276/',
       email: 'gasper@3comp.si',
     },
     {
@@ -113,7 +133,7 @@ export default function SectionTeam() {
       imageSrc: '/img/jan.png',
       imageAlt: 'Team member 3',
       linkedinUrl:
-        'https://www.linkedin.com/in/jan-boštjan-de-stupica-153546178/',
+        'https://www.linkedin.com/in/jan-bo%C5%A1tjan-de-stupica-153546178/',
       email: 'jan@3comp.si',
     },
   ];
@@ -127,7 +147,8 @@ export default function SectionTeam() {
         </h2>
         <p className="section-subtitle">{t('team.subtitle')}</p>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* better spacing and responsive columns */}
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <TeamCard key={member.name} {...member} t={t} />
           ))}
