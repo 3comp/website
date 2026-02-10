@@ -6,6 +6,8 @@
   "nav.blog": "Blog",
   "nav.about": "About Us",
 
+  "hero.pill.text1": "Flexible pricing tailored to",
+  "hero.pill.text2": "your business",
   "hero.title.prefix": "One technology partner",
   "hero.title.highlight": "for all business needs",
   "hero.subtitle": "3comp helps companies plan, implement, and support digital solutions — from information systems to custom applications.",
@@ -65,7 +67,7 @@
   "cta.text": "Looking for a reliable technology partner or considering your next digital step? Send a short description of your needs and we will continue from there.",
   "cta.emailButton": "Write to us: info@3comp.si",
   "cta.emailSubject": "3comp - Inquiry",
-  "cta.emailBody": "Hello 3comp,%0D%0A%0D%0ACompany:%20%0D%0ANeeds:%20%0D%0ATimeline:%20%0D%0A%0D%0AThank you,%0D%0A",
+  "cta.emailBody": "Hello 3comp,\\n\\nCompany:\\nNeeds:\\nTimeline:\\n\\nThank you,",
 
   "pricing.pageTitle": "Pricing",
   "pricing.pageSubtitle": "Choose the model that suits you best.",
@@ -118,7 +120,7 @@
   "pricing.longTerm.enterprise.feature6": "Software updates included",
   "pricing.longTerm.enterprise.cta": "Choose Enterprise",
   "pricing.emailSubject": "3comp - Inquiry",
-  "pricing.emailBody": "Hello 3comp,%0D%0A%0D%0ASelected service:%20{{option}}%0D%0A%0D%0ACompany:%20%0D%0ANeeds:%20%0D%0ATimeline:%20%0D%0A%0D%0AThank you,%0D%0A",
+  "pricing.emailBody": "Hello 3comp,\\n\\nSelected service: {{option}}\\n\\nCompany:\\nNeeds:\\nTimeline:\\n\\nThank you,",
 
   "about.whatWeDo.smalltext": "What makes 3comp great?",
   "about.whatWeDo.title1": "What",
