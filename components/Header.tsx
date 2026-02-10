@@ -25,7 +25,7 @@ export default function Header() {
     { label: t('nav.home'), href: '/' },
     { label: t('nav.services'), href: '/services' },
     { label: t('nav.pricing'), href: '/pricing' },
-    { label: t('nav.blog'), href: '/blog' },
+    //{ label: t('nav.blog'), href: '/blog' },
     { label: t('nav.about'), href: '/about-us' },
   ];
 

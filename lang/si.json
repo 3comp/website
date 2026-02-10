@@ -35,6 +35,8 @@
   "services.web.text": "Sodobne, odzivne spletne strani, usmerjene v jasnost, uporabnost in učinkovitost.",
   "services.it.title": "IT podpora",
   "services.it.text": "Sestava, popravila in čiščenje računalnikov kot podporna storitev za zanesljivo okolje.",
+  "services.autotest.title": "QA avtomatizacija",
+  "services.autotest.text": "Načrtovanje in implementacija avtomatiziranih celostnih testov, ki simulirajo resnične uporabniške poteke.",
   "services.footer.defaultText": "Več informacij",
 
   "approach.title.prefix": "Naš",

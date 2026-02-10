@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import MarkdownPage from '@/components/MarkdownPage';
 import { useI18n } from '@/components/LanguageProvider';
 
-type ServiceKey = 'pantheon' | 'odoo' | 'custom' | 'web' | 'it';
+type ServiceKey = 'pantheon' | 'odoo' | 'custom' | 'web' | 'it' | 'autotest';
 
 function isServiceKey(v: string | null): v is ServiceKey {
   return (
@@ -14,7 +14,8 @@ function isServiceKey(v: string | null): v is ServiceKey {
     v === 'odoo' ||
     v === 'custom' ||
     v === 'web' ||
-    v === 'it'
+    v === 'it' ||
+    v === 'autotest'
   );
 }
 
@@ -68,7 +69,7 @@ export default function ServicesPage() {
                   ? 'bg-(--brand-blue) text-(--brand-white)'
                   : 'border border-black/10 bg-white text-(--brand-blue)'
               } `}
-              variant={active === 'pantheon' ? 'solid' : 'bordered'}
+              variant={active === 'odoo' ? 'solid' : 'bordered'}
             >
               {t('services.odoo.title')}
             </Button>
@@ -81,7 +82,7 @@ export default function ServicesPage() {
                   ? 'bg-(--brand-blue) text-(--brand-white)'
                   : 'border border-black/10 bg-white text-(--brand-blue)'
               } `}
-              variant={active === 'pantheon' ? 'solid' : 'bordered'}
+              variant={active === 'custom' ? 'solid' : 'bordered'}
             >
               {t('services.custom.title')}
             </Button>
@@ -93,7 +94,7 @@ export default function ServicesPage() {
                   ? 'bg-(--brand-blue) text-(--brand-white)'
                   : 'border border-black/10 bg-white text-(--brand-blue)'
               } `}
-              variant={active === 'pantheon' ? 'solid' : 'bordered'}
+              variant={active === 'web' ? 'solid' : 'bordered'}
             >
               {t('services.web.title')}
             </Button>
@@ -105,9 +106,21 @@ export default function ServicesPage() {
                   ? 'bg-(--brand-blue) text-(--brand-white)'
                   : 'border border-black/10 bg-white text-(--brand-blue)'
               } `}
-              variant={active === 'pantheon' ? 'solid' : 'bordered'}
+              variant={active === 'it' ? 'solid' : 'bordered'}
             >
               {t('services.it.title')}
+            </Button>
+
+            <Button
+              onPress={() => selectService('autotest')}
+              className={`h-auto justify-start py-3 text-left wrap-break-word whitespace-normal ${
+                active === 'autotest'
+                  ? 'bg-(--brand-blue) text-(--brand-white)'
+                  : 'border border-black/10 bg-white text-(--brand-blue)'
+              } `}
+              variant={active === 'autotest' ? 'solid' : 'bordered'}
+            >
+              {t('services.autotest.title')}
             </Button>
           </div>
         </aside>

@@ -35,6 +35,8 @@
   "services.web.text": "Modern, responsive websites focused on clarity, usability, and efficiency.",
   "services.it.title": "IT Support",
   "services.it.text": "Computer assembly, repairs, and cleaning as a supporting service for a reliable environment.",
+  "services.autotest.title": "QA Automation",
+  "services.autotest.text": "Design and implementation of automated end-to-end tests that simulate real user workflows.",
   "services.footer.defaultText": "More information",
 
   "approach.title.prefix": "Our",
