@@ -8,12 +8,20 @@ export default function SectionHero() {
   const { t } = useI18n();
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-svh w-full overflow-hidden">
       {/* Background (kept, but neutral like original) */}
       <div className="absolute inset-0 bg-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center px-4 text-center sm:px-6">
+      <div
+        className={[
+          'relative z-10 mx-auto flex min-h-svh w-full max-w-6xl flex-col items-center justify-center px-4 text-center sm:px-6',
+          // ✅ mobile: give breathing room from the top (header/safe-area)
+          'pt-16 pb-10',
+          // ✅ on bigger screens go back to centered look
+          'sm:pt-0 sm:pb-0',
+        ].join(' ')}
+      >
         {/* Announcement pill (original light style) */}
         <Link
           href="/pricing"
@@ -24,15 +32,18 @@ export default function SectionHero() {
             <span className="text-blue-600">{t('hero.pill.text2')} →</span>
           </span>
         </Link>
+
         {/* Headline */}
         <h1 className="mt-6 max-w-4xl text-4xl font-extrabold tracking-tight text-black sm:text-6xl">
           {t('hero.title.prefix')}{' '}
           <span className="text-blue-600">{t('hero.title.highlight')}</span>
         </h1>
+
         {/* Subtitle */}
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg">
           {t('hero.subtitle')}
         </p>
+
         {/* Buttons (unchanged from original) */}
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button
@@ -58,6 +69,7 @@ export default function SectionHero() {
             </span>
           </Button>
         </div>
+
         {/* hero.sub cards — original surface style */}
         <div className="mt-12 grid w-full max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
